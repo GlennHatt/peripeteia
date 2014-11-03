@@ -14,6 +14,7 @@ class AddOfficeHoursToUsersTable extends Migration {
 	{
 		Schema::table('users', function(Blueprint $table)
         {
+            // Test comment
             $table->string('office_hours');
 		});
 	}
