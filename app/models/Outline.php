@@ -16,8 +16,7 @@ class Outline extends Ardent {
     */
    public static $rules = array(
       'instructor_id' => 'required|numeric',
-      'course_id'     => 'required|numeric',
-      'credit_hours'  => 'required|numeric|between:1,5'
+      'course_id'     => 'required|numeric'
    );
 
     //Owns

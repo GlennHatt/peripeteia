@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/UserMaintenance', function(){
-   return View::make('UserMaintenance');
-});
+Route::resource('user', 'userController');
+
+//Route::get('/user/create', 'UserController@create');
+//Route::post('/user/store', 'UserController@store');
 
 /*
 |--------------------------------------------------------------------------

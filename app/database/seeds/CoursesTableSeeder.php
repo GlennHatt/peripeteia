@@ -13,7 +13,7 @@ class CoursesTableSeeder extends Seeder {
 		{
 			Course::create([
             'name'                    => $faker->word,
-            'number'                  => $faker->bothify('??###'),
+            'credit_hours'            => $faker->numberBetween(1, 4),
             'general_information'     => $faker->paragraph(),
             'specific_information'    => $faker->paragraph(),
             'accrediting_information' => $faker->paragraph()
