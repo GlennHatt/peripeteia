@@ -12,7 +12,7 @@
 */
 
 Route::get('/UserMaintenance', function(){
-   return veiw::make('UserMaintenance');
+   return View::make('UserMaintenance');
 });
 
 /*
