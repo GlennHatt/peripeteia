@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/UserMaintenance', function(){
+   return veiw::make('UserMaintenance');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Page Routes
