@@ -9,7 +9,7 @@ class MiscellaneousTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 11) as $index)
 		{
 			Miscellaneous::create([
             'outline_id' => $faker->numberBetween(1, 10),

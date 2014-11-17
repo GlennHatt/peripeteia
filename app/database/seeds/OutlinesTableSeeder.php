@@ -9,12 +9,11 @@ class OutlinesTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 11) as $index)
 		{
 			Outline::create([
             'instructor_id' => $faker->numberBetween(1, 10),
             'course_id'     => $faker->numberBetween(1, 10),
-            'credit_hours'  => $faker->numberBetween(1, 4),
             'description'   => $faker->paragraph()
 			]);
 		}
