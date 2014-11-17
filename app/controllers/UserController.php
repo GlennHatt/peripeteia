@@ -21,7 +21,7 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-      return View::make('UserMaintenance');
+      return View::make('users/SignUp');
 	}
 
 	/**
@@ -32,18 +32,13 @@ class UserController extends \BaseController {
 	 */
 	public function store()
 	{
-      //return Input::all();
+      $user = new User;
+      $user->fill(Input::all());
 
-		$user = new User;
-      $user->first_name   = Input::get('firstName');
-      $user->last_name    = Input::get('lastName');
-      $user->email        = Input::get('email');
-      $user->office       = Input::get('office');
-      $user->office_hours = Input::get('officeHours');
-      $user->password     = Hash::make(Input::get('password'));
-      $user->save();
-
-      return Redirect::route('user.create');
+      if($user->save())
+         return Redirect::route('user.create');
+      else
+         return Redirect::back()->withInput(Input::all())->withErrors($user->validationErrors);
 	}
 
 	/**
@@ -93,5 +88,4 @@ class UserController extends \BaseController {
 	{
 		//
 	}
-
 }

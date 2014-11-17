@@ -8,7 +8,7 @@ use LaravelBook\Ardent\Ardent;
 
 class User extends Ardent implements UserInterface, RemindableInterface {
 
-    protected $fillable = array('first_name', 'last_name', 'email', 'password', 'office', 'office_hours', 'remember_token');
+   protected $fillable = array('first_name', 'last_name', 'email', 'password', 'office', 'office_hours', 'remember_token');
 
 	use UserTrait, RemindableTrait;
 
@@ -18,6 +18,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
+
+   /**
+    * @var string collection
+    */
+   public static $errors;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -41,5 +46,15 @@ class User extends Ardent implements UserInterface, RemindableInterface {
     */
    public function outlines(){
       return $this->hasMany('Outline');
+   }
+
+   public function beforeSave() {
+      // if there's a new password, hash it
+      if($this->isDirty('password')) {
+         $this->password = Hash::make($this->password);
+      }
+
+      return true;
+      //or don't return nothing, since only a boolean false will halt the operation
    }
 }
