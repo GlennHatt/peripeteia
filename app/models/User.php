@@ -12,6 +12,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
+   /**
+    * Do not keep the confirm fields
+    *
+    * @var bool
+    */
    public $autoPurgeRedundantAttributes = true;
 
 	/**
@@ -20,11 +25,6 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'users';
-
-   /**
-    * @var string collection
-    */
-   public static $errors;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -51,6 +51,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
       return $this->hasMany('Outline');
    }
 
+   /**
+    * Hash the password before storing it in the database
+    *
+    * @return bool
+    */
    public function beforeSave() {
       // if there's a new password, hash it
       if($this->isDirty('password')) {

@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder {
             'password'              => $password = $faker->word,
             'password_confirmation' => $password,
             'office'                => $faker->bothify('??###'),
-            'office_hours'          => $faker->numerify('#, #')
+            'office_hours'          => $faker->regexify('(VII|VI|V|IV|III|II|I) (M,W,F|T,R), (VII|VI|V|IV|III|II|I) (M,W,F|T,R)')
          ]);
       }
    }
