@@ -8,9 +8,11 @@ use LaravelBook\Ardent\Ardent;
 
 class User extends Ardent implements UserInterface, RemindableInterface {
 
-   protected $fillable = array('first_name', 'last_name', 'email', 'password', 'office', 'office_hours', 'remember_token');
+   protected $fillable = array('first_name', 'last_name', 'email', 'password', 'password_confirmation', 'office', 'office_hours', 'remember_token');
 
 	use UserTrait, RemindableTrait;
+
+   public $autoPurgeRedundantAttributes = true;
 
 	/**
 	 * The database table used by the model.
@@ -35,10 +37,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
     * Ardent validation rules
     */
    public static $rules = array(
-      'first_name' => 'required|alpha',
-      'last_name'  => 'required|alpha',
-      'email'      => 'required|email',
-      'password'   => 'required'
+      'first_name'            => 'required|alpha',
+      'last_name'             => 'required|alpha',
+      'email'                 => 'required|email',
+      'password'              => 'required|confirmed',
+      'password_confirmation' => 'required'
    );
 
    /**

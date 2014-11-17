@@ -36,7 +36,7 @@ class UserController extends \BaseController {
       $user->fill(Input::all());
 
       if($user->save())
-         return Redirect::route('user.create');
+         return Redirect::to('/');
       else
          return Redirect::back()->withInput(Input::all())->withErrors($user->validationErrors);
 	}

@@ -113,6 +113,15 @@
                 </div>
               </div>
               <div class="row collapse">
+                <div class="small-2  columns">
+                  <span class="prefix">{{ Form::label('password_confirmation', 'Confirm:') }}</span>
+                </div>
+                <div class="small-10  columns">
+                  {{ Form::password('password_confirmation') }}
+                    {{ $errors->first('password_confirmation', '<span class=error>:message</span>') }}
+                </div>
+              </div>
+              <div class="row collapse">
                  <div>
                     {{ Form::submit('Sign Up') }}
                  </div>
