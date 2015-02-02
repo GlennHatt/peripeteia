@@ -50,4 +50,5 @@ Route::api(['version' => 'v1', 'prefix' => 'api', 'protected' => true], function
    Route::get('courseoutline/show',    ['uses' => 'CourseOutlineController@show']);
    Route::get('directory',             ['uses' => 'UserController@index']);
    Route::post('directory/search',     ['uses' => 'UserController@search']);
+   Route::get('signup',               ['uses' => 'UserController@create']);
 });

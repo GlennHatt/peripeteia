@@ -58,4 +58,10 @@ class UserController extends BaseController
 
 
     }
+
+   public function create()
+   {
+
+      Return View::make('pages/signup')->with('testtext', 'Hello world');
+   }
 }
