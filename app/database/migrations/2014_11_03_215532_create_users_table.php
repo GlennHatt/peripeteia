@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration {
          $table->string('password');
          $table->string('office')->nullable();
          $table->string('office_hours')->nullable();
+         $table->boolean('is_teacher');
 			$table->timestamps();
          $table->rememberToken();
 		});

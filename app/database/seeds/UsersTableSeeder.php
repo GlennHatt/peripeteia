@@ -17,7 +17,8 @@ class UsersTableSeeder extends Seeder {
             'email'      => $faker->email,
             'password'   => Hash::make('password'),
             'office'     => $faker->bothify('??###'),
-            'office_hours' => $faker->numerify('#, #')
+            'office_hours' => $faker->numerify('#, #'),
+            'is_teacher'   => $faker->boolean()
 			]);
 		}
 	}
