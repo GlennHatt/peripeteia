@@ -10,11 +10,18 @@ use Order;
 
 class DBUserRepository implements UserRepositoryInterface{
 
+   /***
+    * @return mixed
+    */
    public function getAll()
    {
       return User::All();
    }
 
+   /***
+    * @param $id
+    * @return mixed
+    */
    public function find($id)
    {
       return User::findOrFail($id);

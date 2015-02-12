@@ -16,5 +16,13 @@ class BackendServiceProvider extends ServiceProvider {
          'repositories\DBUserRepositoryInterface',
          'repositories\DBUserRepository'
       );
+      $this->app->bind(
+         'repositories\DBOutlineRepositoryInterface',
+         'repositories\DBOutlineRepository'
+      );
+      $this->app->bind(
+         'repositories\DBCourseRepositoryInterface',
+         'repositories\DBCourseRepository'
+      );
    }
 }
