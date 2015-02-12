@@ -42,4 +42,8 @@ class User extends Ardent implements UserInterface, RemindableInterface {
    public function outlines(){
       return $this->hasMany('Outline');
    }
+
+   public function courses(){
+      return $this->belongsToMany('course');
+   }
 }

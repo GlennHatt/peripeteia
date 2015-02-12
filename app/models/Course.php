@@ -27,4 +27,8 @@ class Course extends Ardent {
    public function outlines(){
       return $this->hasMany('Outline');
    }
+
+   public function teachers(){
+      return $this->belongsToMany('teacher');
+   }
 }
