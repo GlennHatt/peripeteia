@@ -9,14 +9,14 @@ class UsersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		foreach(range(1, 10) as $index)
+		foreach(range(1, 11) as $index)
 		{
 			User::create([
-            'first_name' => $faker->firstName,
-            'last_name'  => $faker->lastName,
-            'email'      => $faker->email,
-            'password'   => Hash::make('password'),
-            'office'     => $faker->bothify('??###'),
+            'first_name'   => $faker->firstName,
+            'last_name'    => $faker->lastName,
+            'email'        => $faker->email,
+            'password'     => Hash::make('password'),
+            'office'       => $faker->bothify('??###'),
             'office_hours' => $faker->numerify('#, #'),
             'is_teacher'   => $faker->boolean()
 			]);
