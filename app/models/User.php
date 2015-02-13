@@ -8,9 +8,16 @@ use LaravelBook\Ardent\Ardent;
 
 class User extends Ardent implements UserInterface, RemindableInterface {
 
-   protected $fillable = array('first_name', 'last_name', 'email', 'password', 'office', 'office_hours', 'is_teacher', 'remember_token');
+   protected $fillable = array('first_name', 'last_name', 'email', 'password', 'password_confirmation', 'office', 'office_hours', 'is_teacher', 'remember_token');
 
 	use UserTrait, RemindableTrait;
+
+   /**
+    * Do not keep the confirm fields
+    *
+    * @var bool
+    */
+   public $autoPurgeRedundantAttributes = true;
 
 	/**
 	 * The database table used by the model.
@@ -30,10 +37,11 @@ class User extends Ardent implements UserInterface, RemindableInterface {
     * Ardent validation rules
     */
    public static $rules = array(
-      'first_name' => 'required|alpha',
-      'last_name'  => 'required|alpha',
-      'email'      => 'required|email',
-      'password'   => 'required'
+      'first_name'            => 'required|alpha',
+      'last_name'             => 'required|alpha',
+      'email'                 => 'required|email',
+      'password'              => 'required|confirmed',
+      'password_confirmation' => 'required'
    );
 
    /**
@@ -45,5 +53,20 @@ class User extends Ardent implements UserInterface, RemindableInterface {
 
    public function courses(){
       return $this->belongsToMany('course');
+   }
+
+   /**
+    * Hash the password before storing it in the database
+    *
+    * @return bool
+    */
+   public function beforeSave() {
+      // if there's a new password, hash it
+      if($this->isDirty('password')) {
+         $this->password = Hash::make($this->password);
+      }
+
+      return true;
+      //or don't return nothing, since only a boolean false will halt the operation
    }
 }

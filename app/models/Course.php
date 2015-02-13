@@ -16,6 +16,7 @@ class Course extends Ardent {
     */
    public static $rules = array(
       'name'                    => 'required',
+      'credit_hours'  => 'required|numeric|between:1,5',
       'general_information'     => 'required',
       'specific_information'    => 'required',
       'accrediting_information' => 'required',

@@ -5,8 +5,8 @@
          <legend>General Information</legend>
             <label for="course_name">Course Name</label>
             <input type="text" ng-model="outline.course_name" name="course_name" id="course_name" placeholder="E.G. Life in Christ"  required >
-            <!-- <div angucomplete-alt 
-               id="course_name" 
+            <!-- <div angucomplete-alt
+               id="course_name"
                placeholder="E.G. Life in Christ" 
                pause="100" 
                selected-object="outline['course_name']" 
@@ -31,7 +31,7 @@
 
             <label for="instructor_name">Instructor Name</label>
             <input type="text" ng-model="outline.instructor_name" name="instructor_name" id="instructor_name" placeholder="E.G. Mr. Stew Foster" required >            
-            <!-- <div angucomplete-alt 
+            <!-- <div angucomplete-alt
                id="instructor_name" 
                placeholder="E.G. Mr. Stew Foster" 
                pause="100" 

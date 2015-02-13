@@ -11,6 +11,11 @@
 |
 */
 
+Route::resource('user', 'userController');
+
+//Route::get('/user/create', 'UserController@create');
+//Route::post('/user/store', 'UserController@store');
+
 /*
 |--------------------------------------------------------------------------
 |  Not Best practice. Catch all routes, send them to angular.

@@ -21,6 +21,7 @@
         <ul class="right">
         @if(!Auth::check())
           <li class="active"><a href="{{ URL::to('login') }}">Login</a></li>
+          <li class="active"><a href="{{ URL::to('user/create') }}">Sign Up</a></li>
         @else
           <li class="active"><a href="{{ URL::to('api/logout') }}">Logout</a></li>
         @endif

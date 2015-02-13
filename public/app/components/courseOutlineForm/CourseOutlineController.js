@@ -1,7 +1,7 @@
 app.controller('CourseOutlineController', function($scope, $http, $window, $location, CourseOutline, usSpinnerService) {
   $scope.master = {};
   $scope.test = {};
-  $scope.outline = { 
+  $scope.outline = {
                       course_name: "Data Structures and Algorithms",
                       credit_hours: "3",
                       instructor_name: "Robert Howell",
@@ -21,7 +21,7 @@ app.controller('CourseOutlineController', function($scope, $http, $window, $loca
   }
   $scope.create = function()
   {
-      $scope.startSpin(); 
+      $scope.startSpin();
       // if($scope.outline.course_name['title'])
       // {
       //   $scope.outline.course_name = $scope.outline.course_name['title'];
@@ -40,6 +40,7 @@ app.controller('CourseOutlineController', function($scope, $http, $window, $loca
               $scope.answer = data;
               $scope.stopSpin();
             }
+
             else if(data < 50)
             {
               $scope.errors = "There was a problem generating the outline.";
@@ -50,6 +51,7 @@ app.controller('CourseOutlineController', function($scope, $http, $window, $loca
               $scope.outline = angular.copy();
               //$window.location.href = data;
               $window.open(data, '_blank');
+
             }
             
             

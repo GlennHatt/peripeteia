@@ -26,5 +26,4 @@ class CoursesTableSeeder extends Seeder {
          }
       }
 	}
-
 }
