@@ -124,8 +124,8 @@ return array(
       'Way\Generators\GeneratorsServiceProvider',
       'Barryvdh\DomPDF\ServiceProvider',
       'Barryvdh\Cors\CorsServiceProvider',
-      'Dingo\Api\ApiServiceProvider',
-      'Repositories\BackendServiceProvider'
+      'Dingo\Api\ApiServiceProvider'/*,
+      'Repositories\BackendServiceProvider'*/
 	),
 
 	/*
